@@ -1,0 +1,67 @@
+<!-- edit_shot.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Edit Shot Data for {{ shot.name }} ({{ year }})</h2>
+
+<form action="{{ url_for('update_shot', year=year, shot_id=shot._id) }}" method="post">
+    <label for="name">Player Name:</label>
+    <input type="text" id="name" name="name" value="{{ shot.name }}" required>
+
+    <label for="team_name">Team Name:</label>
+    <input type="text" id="team_name" name="team_name" value="{{ shot.team_name }}" required>
+
+    <label for="game_date">Game Date:</label>
+    <input type="text" id="game_date" name="game_date" value="{{ shot.game_date }}" required>
+
+    <label for="season">Season:</label>
+    <input type="number" id="season" name="season" value="{{ shot.season }}" required>
+
+    <label for="espn_player_id">ESPN Player ID:</label>
+    <input type="number" id="espn_player_id" name="espn_player_id" value="{{ shot.espn_player_id }}" required>
+
+    <label for="team_id">Team ID:</label>
+    <input type="number" id="team_id" name="team_id" value="{{ shot.team_id }}" required>
+
+    <label for="espn_game_id">ESPN Game ID:</label>
+    <input type="number" id="espn_game_id" name="espn_game_id" value="{{ shot.espn_game_id }}" required>
+
+    <label for="period">Period:</label>
+    <input type="number" id="period" name="period" value="{{ shot.period }}" required>
+
+    <label for="minutes_remaining">Minutes Remaining:</label>
+    <input type="number" id="minutes_remaining" name="minutes_remaining" value="{{ shot.minutes_remaining }}" required>
+
+    <label for="seconds_remaining">Seconds Remaining:</label>
+    <input type="number" id="seconds_remaining" name="seconds_remaining" value="{{ shot.seconds_remaining }}" required>
+
+    <label for="shot_made_flag">Shot Made Flag:</label>
+    <input type="checkbox" id="shot_made_flag" name="shot_made_flag" {% if shot.shot_made_flag %} checked {% endif %}>
+
+    <label for="action_type">Action Type:</label>
+    <input type="text" id="action_type" name="action_type" value="{{ shot.action_type }}" required>
+
+    <label for="shot_type">Shot Type:</label>
+    <input type="text" id="shot_type" name="shot_type" value="{{ shot.shot_type }}" required>
+
+    <label for="shot_distance">Shot Distance:</label>
+    <input type="number" id="shot_distance" name="shot_distance" value="{{ shot.shot_distance }}" required>
+
+    <label for="opponent">Opponent:</label>
+    <input type="text" id="opponent" name="opponent" value="{{ shot.opponent }}" required>
+
+    <label for="x">X Coordinate:</label>
+    <input type="number" id="x" name="x" value="{{ shot.x }}" required>
+
+    <label for="y">Y Coordinate:</label>
+    <input type="number" id="y" name="y" value="{{ shot.y }}" required>
+
+    <!-- ... within your <form> element ... -->
+    <input type="hidden" name="search_year" value="{{ search_year }}">
+    <input type="hidden" name="search_player_name" value="{{ search_player_name }}">
+    <input type="hidden" name="search_shot_type" value="{{ search_shot_type }}">
+    <input type="hidden" name="search_period" value="{{ search_period }}">
+
+    <input type="submit" value="Update Shot">
+</form>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NBA Stats Explorer - Login</title>
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body class="bg-image">
+    <div class="page-title">Welcome to NBA Stats Explorer</div>
+<div class="container">
+    <!-- <h2 class="text-center animated-heading">Welcome to NBA Stats Explorer</h2> -->
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 mt-5">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Login</h3>
+                    <form action="/login" method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        {% if msg %}
+                            <div class="alert alert-warning mt-3" role="alert">{{ msg }}</div>
+                        {% endif %}
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    Don't have an account? <a href="/register">Register here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap JS and its dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

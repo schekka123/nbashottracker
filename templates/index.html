@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Statistic Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <style>
+        /* Additional styles can go here. */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">NBA Statistic Analysis</h1>
+        
+        <div class="row">
+            <!-- Shot Search Section -->
+            <div class="col-md-6">
+                <h2>Shot Search Statistics</h2>
+                <form id="searchFormShot" action="/search" method="get">
+                    <div class="form-group">
+                        <label for="searchYearShot">Select the year:</label>
+                        <select name="year" id="searchYearShot" class="form-control">
+                            {% for year in shot_years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="searchPlayerNameShot">Player Name:</label>
+                        <input type="text" id="searchPlayerNameShot" name="player_name" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="searchShotTypeShot">Shot Type:</label>
+                        <select id="searchShotTypeShot" name="shot_type" class="form-control">
+                            <option value="">Any</option>
+                            <option value="2PT Field Goal">2PT Field Goal</option>
+                            <option value="3PT Field Goal">3PT Field Goal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="searchPeriodShot">Period:</label>
+                        <select id="searchPeriodShot" name="period" class="form-control">
+                            <option value="">Any</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">OT1</option>
+                            <option value="6">OT2</option>
+                            <option value="7">OT3</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Search Shots</button>
+                </form>
+            </div>
+
+            <!-- Rebound Search Section -->
+            <div class="col-md-6">
+                <h2>Rebound Search Statistics</h2>
+                <form id="searchFormRebound" action="/search_rebounds" method="get">
+                    <div class="form-group">
+                        <label for="seasonRebound">Select the season:</label>
+                        <select name="season" id="seasonRebound" class="form-control">
+                            {% for year in rebound_years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rebounderRebound">Rebounder:</label>
+                        <input type="text" id="rebounderRebound" name="rebounder" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reb_typeRebound">Rebound Type:</label>
+                        <select id="reb_typeRebound" name="reb_type" class="form-control">
+                            <option value="">Any</option>
+                            <option value="Defensive">Defensive</option>
+                            <option value="Offensive">Offensive</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Search Rebounds</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Visualization Link Section -->
+    <div class="visualization-section text-center mt-4">
+      <h2>Click here to visualize the statistics</h2>
+      <a href="https://schekka123.github.io/adt_final_proj/" class="btn btn-info">Visualize Stats</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

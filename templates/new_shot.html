@@ -1,0 +1,54 @@
+<!-- new_shot.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Create New Shot Entry</h2>
+
+<form action="{{ url_for('add_shot', year=year) }}" method="post">
+    <!-- Form fields for creating a new shot -->
+    <!-- Use similar fields as in your edit_shot.html, but with empty values for the user to fill in -->
+    <label for="name">Player Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="team_name">Team Name:</label>
+    <input type="text" id="team_name" name="team_name" required>
+
+    <label for="game_date">Game Date:</label>
+    <input type="text" id="game_date" name="game_date" required>
+
+    <label for="season">Season:</label>
+    <input type="number" id="season" name="season" required>
+
+    <label for="period">Period:</label>
+    <input type="number" id="period" name="period" required>
+
+    <label for="minutes_remaining">Minutes Remaining:</label>
+    <input type="number" id="minutes_remaining" name="minutes_remaining" required>
+
+    <label for="seconds_remaining">Seconds Remaining:</label>
+    <input type="number" id="seconds_remaining" name="seconds_remaining" required>
+
+    <label for="shot_made_flag">Shot Made Flag:</label>
+    <input type="checkbox" id="shot_made_flag" name="shot_made_flag">
+
+    <label for="action_type">Action Type:</label>
+    <input type="text" id="action_type" name="action_type" required>
+
+    <label for="shot_type">Shot Type:</label>
+    <input type="text" id="shot_type" name="shot_type" required>
+
+    <label for="shot_distance">Shot Distance:</label>
+    <input type="number" id="shot_distance" name="shot_distance" required>
+
+    <label for="opponent">Opponent:</label>
+    <input type="text" id="opponent" name="opponent" required>
+
+    <label for="x">X Coordinate:</label>
+    <input type="number" id="x" name="x" required>
+
+    <label for="y">Y Coordinate:</label>
+    <input type="number" id="y" name="y" required>
+
+    <input type="submit" value="Create Shot">
+</form>
+{% endblock %}

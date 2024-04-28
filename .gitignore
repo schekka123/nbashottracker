@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+
+# Environment variables
+.env
+
+# SQLite database files
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+
+# If you're using a macOS, to exclude .DS_Store files
+.DS_Store
+
+# If you're using Jupyter Notebooks
+.ipynb_checkpoints
+
+# Flask instance folder
+instance/
+
+# Other files that should be kept private
+secrets.yml
+credentials.json

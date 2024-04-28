@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Shot Data for the {{ year }} season</h1>
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Select Different Year</a>
+<a href="{{ url_for('new_shot', year=year) }}" class="btn btn-primary">Create New Entry</a>
+<link rel="stylesheet" href="{{ url_for('static', filename='views.css') }}">
+
+
+
+<!-- Add a button for creating a new shot
+<a href="{{ url_for('new_shot', year=year) }}" class="btn btn-primary">Create New Entry</a> -->
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th>Team Name</th>
+            <th>Game Date</th>
+            <th>Season</th>
+            <th>espn_player_id</th>
+            <th>team_id</th>
+            <th>espn_game_id</th>
+            <th>Period</th>
+            <th>Minutes Remaining</th>
+            <th>Seconds Remaining</th>
+            <th>Shot Made Flag</th>
+            <th>Action Type</th>
+            <th>Shot Type</th>
+            <th>Shot Distance</th>
+            <th>Opponent</th>
+            <th>X Coordinate</th>
+            <th>Y Coordinate</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for shot in shots %}
+        <tr>
+            <td>{{ shot.name }}</td>
+            <td>{{ shot.team_name }}</td>
+            <td>{{ shot.game_date }}</td>
+            <td>{{ shot.season }}</td>
+            <td>{{ shot.espn_player_id }}</td>
+            <td>{{ shot.team_id }}</td>
+            <td>{{ shot.espn_game_id }}</td>
+            <td>{{ shot.period }}</td>
+            <td>{{ shot.minutes_remaining }}</td>
+            <td>{{ shot.seconds_remaining }}</td>
+            <td>{{ shot.shot_made_flag }}</td>
+            <td>{{ shot.action_type }}</td>
+            <td>{{ shot.shot_type }}</td>
+            <td>{{ shot.shot_distance }}</td>
+            <td>{{ shot.opponent }}</td>
+            <td>{{ shot.x }}</td>
+            <td>{{ shot.y }}</td>
+            <td>
+                <a href="{{ url_for('edit_shot', year=year, shot_id=shot._id) }}">Edit</a>
+                |
+                <a href="{{ url_for('delete_shot', year=year, shot_id=shot._id) }}"
+                   onclick="return confirm('Are you sure?');">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

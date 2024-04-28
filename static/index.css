@@ -1,0 +1,68 @@
+/* index.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    background-image: url('/static/images/background1.jpg'); /* Update with the correct path */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    padding-top: 40px; /* Adjust as needed */
+  }
+  
+  h1.my-4.text-center {
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  /* Shot Search Section Styles */
+  .col-md-6:first-child {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for visibility */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Space between sections */
+  }
+  
+  /* Rebound Search Section Styles */
+  .col-md-6:last-child {
+    background-color: rgb(255, 255, 192); /* Bootstrap primary color with transparency */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .btn-primary {
+    width: 100%; /* Full width buttons */
+    margin-top: 20px; /* Space above the button */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .col-md-6 {
+      margin-bottom: 20px;
+    }
+  
+    .col-md-6:last-child {
+      margin-bottom: 0; /* Remove margin-bottom for the last element on small screens */
+    }
+  }
+  
+  /* Visualization Section Styles */
+.visualization-section h2 {
+    color: #ddd; /* Light color for the heading text */
+    margin-bottom: 15px; /* Space between heading and button */
+    text-shadow: 1px 1px 3px #333;
+}
+
+.visualization-section .btn-info {
+    font-size: 1.2em; /* Larger font size for the button */
+    padding: 10px 20px; /* Larger padding for a bigger button */
+    border: none;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.visualization-section .btn-info:hover {
+    background-color: #31b0d5; /* Slightly darker blue on hover */
+    color: #fff;
+}

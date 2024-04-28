@@ -1,0 +1,47 @@
+/* views.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Add border to table cells */
+  }
+  
+  th {
+    background-color: #bbbbf8; /* Light pink background for header */
+    color: #333;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #e5fce4; /* Lighter pink for odd rows */
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #bbf8e4; /* Light pink for even rows */
+  }
+  
+  /* Add styles for the buttons */
+  .btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .btn-secondary {
+    background-color: #3e3bff; /* Yellow background */
+    color: white; /* Black text */
+  }
+  
+  .btn-primary {
+    background-color: #3e3bff; /* Pink background */
+    color: white; /* White text */
+  }
+  
+  /* Other styles you may have... */
+  

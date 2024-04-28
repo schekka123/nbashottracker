@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Rebound Data for {{ season }} season</h2>
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Select Different Year</a>
+<a href="{{ url_for('new_rebound', season=season) }}" class="btn btn-primary">Create New Entry</a>
+<link rel="stylesheet" href="{{ url_for('static', filename='views_rebounds.css') }}">
+
+
+<!-- Link to your custom CSS
+<link rel="stylesheet" href="{{ url_for('static', filename='views_rebounds.css') }}">
+
+<div>
+    <a href="{{ url_for('index') }}" class="btn-custom btn-secondary-custom">Select Different Season</a>
+    <a href="{{ url_for('new_rebound', season=season) }}" class="btn-custom btn-primary-custom">Create New Entry</a>
+</div> -->
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Rebounder</th>
+            <th>Player ID</th>
+            <th>Rebounding Team Name</th>
+            <th>Matchup</th>
+            <th>Game Date</th>
+            <th>Season</th>
+            <th>Game ID</th>
+            <th>Period</th>
+            <th>Minutes</th>
+            <th>Seconds</th>
+            <th>Shot Type</th>
+            <th>Rebound Type</th>
+            <th>Shot Distance</th>
+            <th>Rebound Distance</th>
+            <th>Number Contested</th>
+            <th>Shooter</th>
+            <th>Shooter Player ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rebound in rebounds %}
+        <tr>
+            <td>{{ rebound.rebounder }}</td>
+            <td>{{ rebound.player_id }}</td>
+            <td>{{ rebound.rebounding_team_name }}</td>
+            <td>{{ rebound.matchup }}</td>
+            <td>{{ rebound.game_date }}</td>
+            <td>{{ rebound.season }}</td>
+            <td>{{ rebound.game_id }}</td>
+            <td>{{ rebound.period }}</td>
+            <td>{{ rebound.minutes }}</td>
+            <td>{{ rebound.seconds }}</td>
+            <td>{{ rebound.shot_type }}</td>
+            <td>{{ rebound.reb_type }}</td>
+            <td>{{ rebound.shot_dist }}</td>
+            <td>{{ rebound.reb_dist }}</td>
+            <td>{{ rebound.num_contested }}</td>
+            <td>{{ rebound.shooter }}</td>
+            <td>{{ rebound.shooter_player_id }}</td>
+            <td>
+                <a href="{{ url_for('edit_rebound', season=season, rebound_id=rebound._id) }}">Edit</a>
+                |
+                <a href="{{ url_for('delete_rebound', season=season, rebound_id=rebound._id) }}"
+                   onclick="return confirm('Are you sure?');">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
